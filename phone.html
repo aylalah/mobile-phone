@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>phone</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="bootstrap4/css/bootstrap.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<style type="text/css">
+		#ph{
+			margin-top: 10px;
+			width: 80%;
+			height: 200px;
+			border-color::;
+			border-radius:6px;
+
+		}
+		#scrn
+		{
+			width: 220px;
+			height: 300px;		
+			border: 2px solid black;
+			font-weight: bold;
+			font-size: 20px;
+			color: black;
+			background-color: #ffffff;
+			word-wrap: break-word;
+			word-break: break-all;
+		}
+		button
+		{
+			width: 90px;
+			height: 50px;
+			border-radius:5px;		
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<table id="ph" class="table table-border table-dark" border="0">
+			<thead>
+				<tr>
+					<td colspan="3" align="center">jOYTUNE</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td colspan="3" id="scrn"></td>
+				</tr>
+				<tr>
+					<td><button onclick="menu('-')">-</button></td>
+					<td rowspan="2" onclick="middle('')"><button style="height:100px; margin-top: 15px" >-</button></td>
+					<td><button onclick="clears('')">-</button></td>
+				</tr>
+				<tr>
+					<td><button onclick="call('')">-</button></td>
+					<td><button onclick="cut('')">-</button></td>
+				</tr>
+				<tr>
+					<td><button onclick="get('1')">1<br></button></td>
+					<td><button onclick="get('2')">2<br>ABC</button></td>
+					<td><button onclick="get('3')">3<br>DEF</button></td>
+				</tr>
+				<tr>
+					<td><button onclick="get('4')">4<br>GHI</button></td>
+					<td><button onclick="get('5')">5<br>JKL</button></td>
+					<td><button onclick="get('6')">6<br>MNO</button></td>
+				</tr>
+				<tr>
+					<td><button onclick="get('7')">7<br>PQRS</button></td>
+					<td><button onclick="get('8')">8<br>TUV</button></td>
+					<td><button onclick="get('9')">9<br>WXYZ</button></td>
+				</tr>
+				<tr>
+					<td><button onclick="get('*')">*</button></td>
+					<td><button onclick="get('0')">0<br>+</button></td>
+					<td><button onclick="get('#')">#</button></td>
+				</tr>
+			</tbody>
+			
+		</table>		
+			</div>
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<form>
+					<input type="text" pattern="[A-Z]{5,10}" name="">
+					<input type="submit" name="">
+				</form>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
+	<script type="text/javascript">		
+
+		var cardvalue="";
+		var retrievedData = localStorage.getItem('jtcard');
+		var card = JSON.parse(retrievedData);	
+		var ucard="";
+		var sec=6;
+		var ansec= -4;
+		var min= 0;
+		var	mtnvalue= [["1. Account information <br/> 2. Tariff Plane Migration <br/> 3. Data Service <br/> 4. Roaming & Int'l Offers 			<br/> 5. My Service <br/> 6. Extra Time <br/> 7. More... <br/> Enter 1,2,3....7 to proceed <br/> Reply &nbsp 				&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp cancel"],
+					["My Tools <br/> 1. My Number <br/> 2. My Tarrif Plane <br/> 3. My Account balance <br/> 4. My Data balance <br/> 5. End of call Message <br/> 0. Back <br/> Reply &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp cancel","Y'ellow! Your mobile number is 2347064196171","1. Beta Talk <br/> 2. Pulse <br/> 3. Xtraspecial <br/> 4. XtraValue <br/> 0. Back <br/> 00. MainMenu","Please dail *556# for prepaid balance & *558# for postpaid balance","Sorry, you current have no active Data bundle. Please dial *131*1#  to buy a new bundle, *606# to borrow data or *131*200# to browse @N3/MB","1. Active EOCN <br/> 2. Deactivate EOCN <br/> 0. Back"],
+					["1. Beta Talk <br/> 2. Pulse <br/> 3. Xtraspecial <br/> 4. XtraValue <br/> 0. Back <br/> 00. MainMenu","Connection problem or invalid MMI code.","Connection problem or invalid MMI code.","Connection problem or invalid MMI code.","Connection problem or invalid MMI code.","Connection problem or invalid MMI code."],
+					["1. Buy Data Plane <br/> 2. Buy XtraValue Bundles <br/> 3. Buy Goody Bags <br/> 4. Check Balance <br/> 5. Roaming & int'l Offers <br/> 6. Xtratime/Byte <br/> 7. Data Gift <br/> 8. You Tube Packs","Buy Data Plans <br/> 1. Daily Plan <br/> 2. weekly Plan <br/> 3. MOnthly Plan <br/> 4. 2-months Plan <br/> 5. 3-months Plan <br/> 0. Back","XtraValue Bundles <br/> 1. XtraTalk <br/> 2. XtraData <br/> 3. Eligible International Destinations <br/> 0. Back","1. WhatsApp <br/> 2. Facebook <br/> 3. Twitter <br/> 4. INSTAGRAM <br/> 5. 2GO <br/> 6. WECHAT <br/> 7. Eskimi <br/> 8. NIMBUZZ <br/> 9. PICK ANY 5 <br/> 0. Back","Sorry, you current have no active Data bundle. Please dial *131*1#  to buy a new bundle, *606# to borrow data or *131*200# to browse @N3/MB","HelloWorld Roaming Offer <br/> 2. SuperRoaming (Free incomeing roaming) <br/> 3. Int'l Calling Bundles <br/> 0. Back","Welcome to MTN XtraTime. <br/> 1. Eligibility Status <br/> 2. Request Airtime (XtraTime) <br/> 3. Request Data (Xtrabyte) <br/> 4. XtraTime Balance <br/> 9. Next","Buy Data Plans <br/> 1. Daily Plan <br/> 2. weekly Plan <br/> 3. MOnthly Plan <br/> 4. 2-months Plan <br/> 5. 3-months Plan <br/> 0. Back","Subscribe to a video pack Plan & enjoy video streaming or download on You Tube. <br/> 1. 1hour @N150 <br/> 2. 3hour @N400 <br/> 0.Back"],
+					["1. HelloWorld Roaming Offer <br/> 2. SuperRoaming (Free incomeing roaming) <br/> 3. Int'l Calling Bundles <br/> 0. Back","1. UAE Roaming Bundle <br/> 2. HelloWorld Discounted Roaming rates <br/> 3. HelloWorld Roaming Bundle <br/> 0. Back","1. Check Eligibility <br/> 2. Eligible Destinations <br/> 3. check Balance <br/> 0. Back","1. view Eligible Destinations (Bundle application to selected networks in Destinations listed) <br/> 2. Subscribe to in'tl Calling Bundle  <br/> 0. Back"],
+					["1. New Services <br/> 2. MyPlay Services <br/> 3. Mycallertunez <br/> 4. MTN BackUp <br/> 5. My Music Pluse <br/> 6. Promo Servoces <br/> 7. My Active Services","New Services <br/> 1. Comedy+ <br/> 2. Vee Tee <br/> 3. Career Planning  <br/> 4. mHealth <br/> 5. Pandora Service <br/> 6. CallerFeel <br/> 7. Game+ <br/> 0. Back","1. Shortz <br/> 2. Entertainment <br/> 3. Sports <br/> 4. New and info <br/> 5. mHealth <br/> 6. Inspirational <br/> 7. Love and life <br/> 8. My Services","Main Menu <br/> 1. My Library <br/> 2. New cellertunez <br/> 3. Hot Tunez <br/> 4. Search Tunez <br/> 5. Callertunez Bundle","MTN BackUp sservice allows you keep your and sim contact safe on a secure MTN online account. To Subscribe text START to 307. To Opt-out, send STOP to 307"],
+					["Welcome to MTN XtraTime. <br/> 1. Eligibility Status <br/> 2. Request Airtime (XtraTime) <br/> 3. Request Data (Xtrabyte) <br/> 4. XtraTime Balance <br/> 9. Next","Y'ellow. You can now enjoy the NTM Xtratime & Xtrabyte! Your total credit limit is N330","Welcome to MTN XtraTime. <br/> 1. NGN 200 <br/> 2. NGN 100 <br/> 3. NGN 50","Welcome to MTN XtraTime. <br/> 1. 150 MB (NGN 345.00) <br/> 2. 150 MB(NGN 230.00) <br/> 3. 50 MB (NGN 115.00)","Y'ellow. MTN Xtracash servise is only avilable to Diamond Yello Account holders. Dial *710# to open an account now."],
+					["1. Mobile Newspaper Service <br/> 2. ShareAndSell <br/> 3. Okada Books <br/> 0. Back <br/> 00. MainMenu"]]
+		var c;
+		var e="mtn";
+		var mytools="";
+		var myinnertools= "";
+		var t= "";
+		var lowCredit= new Audio("aud/lowcredit.mp3");
+		if (localStorage.credit=="") {localStorage.credit=0};
+		localStorage.credit;
+		ucard=localStorage.getItem("usedCard");
+
+		function get(a)
+		{
+			c=document.getElementById('scrn').innerHTML;
+			if (c==0) {document.getElementById('scrn').innerHTML+=a;}
+			else{document.getElementById('scrn').innerHTML+=a;}
+			if (t=="off") { document.getElementById('scrn').innerHTML="input error, Please input again"}
+			
+		}
+		function clears()
+		{
+			var str = document.getElementById('scrn').innerHTML;
+			var l = str.length;
+			l--;
+			document.getElementById('scrn').innerHTML = str.substr(0,l);
+		}
+		function call()
+		{
+
+			if (c.length==10 && cardvalue !="0") {g=ansec++; document.getElementById('scrn').innerHTML="Calling..."; if (ansec>=0) { document.getElementById('scrn').innerHTML=min+":"+ansec; localStorage.credit--; }}
+			else if (c.length==10 && cardvalue <= 0) {g=ansec++; document.getElementById('scrn').innerHTML="Calling..."; if (ansec>=0) { lowCredit.play(); if (ansec==8){ window.clearTimeout(stop); document.getElementById('scrn').innerHTML=""; lowCredit.pause()}; return;}}
+
+			if (ansec>=59) {
+				min++; ansec=0;
+			}
+			if (sec<1) { sec=3; return;}
+			var g;
+			stop= window.setTimeout('call()',1000);
+			
+			if (e=="mtn" && document.getElementById('scrn').innerHTML=="*123#") {document.getElementById('scrn').innerHTML="Please wait...";}
+			else{if (document.getElementById('scrn').innerHTML=="Please wait...") 
+					{g=sec--;  if (sec==0) {document.getElementById('scrn').innerHTML=mtnvalue[0][0]; t="off"}
+				} 
+			}
+			if (e=="mtn1") {g=sec--;  if (sec==2) {mytools=document.getElementById('scrn').innerHTML}; document.getElementById('scrn').innerHTML="Please wait...";if (sec==0) {document.getElementById('scrn').innerHTML=mtnvalue[mytools][0]; e="mtn2"}
+			}
+			else {if (e=="mtn3") {g=sec--;  if (sec==2	) {myinnertools=document.getElementById('scrn').innerHTML}; document.getElementById('scrn').innerHTML="Please wait...";if (sec==0) {document.getElementById('scrn').innerHTML=mtnvalue[mytools][myinnertools];
+					if (document.getElementById('scrn').innerHTML=="undefined") {e="mtn"; document.getElementById('scrn').innerHTML=""}
+					}
+				}
+			}
+			var cbalance= "iPulse main balance:-"+"&nbsp"+"NGN"+"&nbsp"+cardvalue+"."+"&nbsp"+"For Xtratime Please dial *606#"; t="off";
+			if (document.getElementById('scrn').innerHTML=="*556#") {document.getElementById('scrn').innerHTML="Requesting...";}
+			else{if (document.getElementById('scrn').innerHTML=="Requesting...") 
+					{g=sec--; if (sec==0) {document.getElementById('scrn').innerHTML=cbalance; t="off"}
+				} 
+			}
+			if (document.getElementById('scrn').innerHTML=="*555*"+card[0]+"#") {document.getElementById('scrn').innerHTML="Loading...";}
+			else{if (document.getElementById('scrn').innerHTML=="Loading...") 
+					{g=sec--; if (sec==0 && card[0] !=ucard.substring(1,17)) {document.getElementById('scrn').innerHTML="Account recharge of N100.00 was successful."; localStorage.credit=parseInt(cardvalue)+100; localStorage.usedCard=JSON.stringify(card[0])	}
+					 if (sec==0 && card[0] ==ucard.substring(1,17)) {document.getElementById('scrn').innerHTML="Sorry, this card has already been load by you"}
+				} 
+			}
+			
+		cardvalue=localStorage.getItem("credit");
+		}
+		function menu()
+		{
+			t= "on";
+			if (e=="mtn") {document.getElementById('scrn').innerHTML="";e="mtn1"}
+			if (e=="mtn2") {document.getElementById('scrn').innerHTML="";e="mtn3"}
+		}
+		 function cut()
+		 {
+		 	t= "on";
+		 	document.getElementById('scrn').innerHTML="";
+		 	e="mtn";
+		 	// if (ansec>=0) { document.getElementById('scrn').innerHTML="";}
+		 	window.clearTimeout(stop);
+		 	ansec=-4;
+		 	 lowCredit.pause(); return;	
+		 }
+	</script>
